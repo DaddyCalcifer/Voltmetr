@@ -1,0 +1,24 @@
+﻿<Window x:Class="Voltmetr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Voltmetr"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="589" Width="573">
+    <Grid Background="Black">
+        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,410" BorderBrush="#FF252525" Foreground="White">
+        </GroupBox>
+        <GroupBox Header="" Background="#FF252525" Margin="0,163,0,10" BorderBrush="#FF252525" Foreground="White">
+            <Canvas Background="White" Margin="38,0,25,0" Height="327">
+                <Image Height="263" Canvas.Left="15" Canvas.Top="70" Width="466" Source="/dial_275x180_sans.jpg" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Image Source="/arrow.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Height="460" Canvas.Left="220" Canvas.Top="70">
+                    <Image.RenderTransform>
+                        <RotateTransform x:Name="ArrowAngle" Angle="-90" CenterX="29" CenterY="230"/>
+                    </Image.RenderTransform>
+                </Image>
+            </Canvas>
+        </GroupBox>
+
+    </Grid>
+</Window>
