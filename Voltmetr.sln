@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voltmetr", "Voltmetr\Voltmetr.csproj", "{6E502C72-1CBD-443A-8769-5249F1B62496}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetAppEmulator", "NetAppEmulator\NetAppEmulator.csproj", "{C2C243F7-9F9D-472D-AA59-1F24C0BD4CFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6E502C72-1CBD-443A-8769-5249F1B62496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E502C72-1CBD-443A-8769-5249F1B62496}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E502C72-1CBD-443A-8769-5249F1B62496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C243F7-9F9D-472D-AA59-1F24C0BD4CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C243F7-9F9D-472D-AA59-1F24C0BD4CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C243F7-9F9D-472D-AA59-1F24C0BD4CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C243F7-9F9D-472D-AA59-1F24C0BD4CFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

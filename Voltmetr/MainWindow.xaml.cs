@@ -21,11 +21,18 @@ namespace Voltmetr
     /// </summary>
     public partial class MainWindow : Window
     {
+        VoltmetrEMU voltmetr;
         public MainWindow()
         {
             InitializeComponent();
-            ArrowManager arrowManager = new ArrowManager(ArrowAngle);
-            arrowManager.value = 55;
+            voltmetr = new VoltmetrEMU(ArrowAngle);
+            voltmetr.SetVoltage(10);
+            DataContext = this;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await voltmetr.UpdateVoltage();
         }
     }
 }

@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Voltmetr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="589" Width="573">
+        Title="MainWindow" Height="608" Width="535" ResizeMode="CanMinimize">
     <Grid Background="Black">
-        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,410" BorderBrush="#FF252525" Foreground="White">
+        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,410" BorderBrush="#FF252525" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button Content="Получить данные" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="41" Width="148" Click="Button_Click"/>
         </GroupBox>
         <GroupBox Header="" Background="#FF252525" Margin="0,163,0,10" BorderBrush="#FF252525" Foreground="White">
-            <Canvas Background="White" Margin="38,0,25,0" Height="327">
-                <Image Height="263" Canvas.Left="15" Canvas.Top="70" Width="466" Source="/dial_275x180_sans.jpg" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <Image Source="/arrow.png" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Height="460" Canvas.Left="220" Canvas.Top="70">
+            <Canvas Background="White" Margin="38,0,81,0" Height="327">
+                <Image Height="327" Canvas.Left="-10" Width="492" Source="/вольтметр.jpg" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Image Source="/arrow.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="48" Height="380" Canvas.Left="190" Canvas.Top="30">
                     <Image.RenderTransform>
-                        <RotateTransform x:Name="ArrowAngle" Angle="-90" CenterX="29" CenterY="230"/>
+                        <RotateTransform x:Name="ArrowAngle" Angle="-81" CenterX="24" CenterY="190"/>
                     </Image.RenderTransform>
                 </Image>
             </Canvas>
