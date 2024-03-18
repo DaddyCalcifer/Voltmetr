@@ -21,6 +21,10 @@ namespace Voltmetr.Logic
         {
             arrow.value = volt;
         }
+        public void SetMultiply(double val)
+        {
+            arrow.Multiply = val;
+        }
         public async Task UpdateVoltage()
         {
             if (!isConnected)

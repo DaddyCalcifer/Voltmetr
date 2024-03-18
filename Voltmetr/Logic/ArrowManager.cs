@@ -18,32 +18,42 @@ namespace Voltmetr.Logic
         }
         RotateTransform angle;
         double value_;
-        public double Multyply = 1f;
+        double mult_;
+        public double Multiply {
+            get { return mult_; }
+            set
+            {
+                if (value_ > 150) value_ = 150;
+                RotateToAnim(value, Multiply);
+                this.mult_ = value;
+            }
+        }
         public double value {  
             get { return value_; }
             set {
-                if (value_ * Multyply > Multyply*150) value_ = Multyply*150;
-                RotateToAnim(value);
+                if (value_ > 150) value_ = 150;
+                RotateToAnim(value,Multiply);
                 this.value_ = value;
             } 
         }
-        void RotateToAnim(double new_val)
+        void RotateToAnim(double val, double multiply=1)
         {
-            if(new_val*Multyply > Multyply*150) new_val = Multyply*150;
+            var new_val = val * multiply;
+            if(new_val > 150) new_val = 150;
             DoubleAnimation rotateAnim = new DoubleAnimation();
             double fix_ = 1 + new_val / 1000.0f;
             double fix_2 = 0;
-            if(new_val * Multyply > 35 * Multyply && new_val * Multyply < 101 * Multyply)
+            if(new_val > 35 && new_val < 101)
             {
                 fix_2 += 1;
             }
-            if (new_val * Multyply > 100 * Multyply) { fix_ *= 0.9f; 
+            if (new_val > 100) { fix_ *= 0.9f; 
                 fix_2 += 7;
-                if (new_val * Multyply > 100 * Multyply && new_val * Multyply < 140* Multyply) fix_2 += 5;
+                if (new_val > 100 && new_val < 140) fix_2 += 5;
                 else fix_2 += 3;
             }
-            rotateAnim.From = (((value + fix_2 - (1)) * fix_) * Multyply - 80);
-            rotateAnim.To = (((new_val+fix_2-(1))*fix_) * Multyply - 80);
+            rotateAnim.From = (((value + fix_2 - (1)) * fix_) - 80);
+            rotateAnim.To = (((new_val+fix_2-(1))*fix_) - 80);
             rotateAnim.Duration = TimeSpan.FromSeconds(Math.Abs(value-new_val)/120.0);
 
             angle.BeginAnimation(RotateTransform.AngleProperty, rotateAnim);

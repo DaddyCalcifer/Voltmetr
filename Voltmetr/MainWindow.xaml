@@ -5,12 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Voltmetr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="608" Width="535" ResizeMode="CanMinimize">
+        Title="Вольтметр" Height="608" Width="535" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style x:Key="SquareRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <!-- Для текста Content -->
+                                <RowDefinition Height="Auto"/>
+                                <!-- Для квадрата -->
+                            </Grid.RowDefinitions>
+
+                            <!-- Текст Content -->
+                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
+
+                            <!-- Квадрат и CheckMark -->
+                            <Rectangle x:Name="Border" Grid.Row="1" Width="25" Height="50" Stroke="Black" StrokeThickness="2" Fill="Transparent"/>
+                            <Rectangle x:Name="CheckMark" Grid.Row="1" Width="20" Height="45" Fill="Black" Opacity="0"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Opacity" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Stroke" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="Black">
-        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,410" BorderBrush="#FF252525" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button Content="Получить данные" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="41" Width="148" Click="Button_Click"/>
+        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,410" BorderBrush="#FF252525" Foreground="White" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Height="156">
+                <Button Content="Получить данные" Height="37" Width="128" Click="Button_Click" VerticalAlignment="Top"/>
+                <ListBox BorderThickness="0" Background="#00252525" Width="186" Height="96" VerticalAlignment="Top" Margin="200,0,0,0">
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <RadioButton Content="75" Margin="0,0,10,0" GroupName="OptionsGroup" Style="{StaticResource SquareRadioButtonStyle}" Click="RadioButton_Click"/>
+                        <RadioButton Content="150" Margin="0,0,10,0" GroupName="OptionsGroup" Style="{StaticResource SquareRadioButtonStyle}" Click="RadioButton_Click_1"/>
+                        <RadioButton Content="300" Margin="0,0,10,0" GroupName="OptionsGroup" Style="{StaticResource SquareRadioButtonStyle}" Click="RadioButton_Click_2"/>
+                        <RadioButton Content="600" Margin="0,0,10,0" GroupName="OptionsGroup" Style="{StaticResource SquareRadioButtonStyle}" Click="RadioButton_Click_3"/>
+                        <RadioButton Content="O" IsChecked="True" GroupName="OptionsGroup" Style="{StaticResource SquareRadioButtonStyle}" Click="RadioButton_Click_4"/>
+                    </StackPanel>
+                </ListBox>
+            </StackPanel>
         </GroupBox>
-        <GroupBox Header="" Background="#FF252525" Margin="0,163,0,10" BorderBrush="#FF252525" Foreground="White">
+        <GroupBox Header="" Background="#FF252525" Margin="0,163,0,10" BorderBrush="#FF252525" Foreground="White" Grid.ColumnSpan="2">
             <Canvas Background="White" Margin="38,0,81,0" Height="327">
                 <Image Height="327" Canvas.Left="-10" Width="492" Source="/вольтметр.jpg" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Source="/arrow.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="48" Height="380" Canvas.Left="190" Canvas.Top="30">
