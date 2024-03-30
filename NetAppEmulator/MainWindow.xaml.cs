@@ -49,6 +49,34 @@ namespace NetAppEmulator
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             await SetVoltage(Convert.ToDouble(voltageText.Text));
+            await UpdateUnits();
+        }
+        bool isConnected = false;
+        public async Task UpdateUnits()
+        {
+            if (!isConnected)
+            {
+                using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("voltmeterUnitPipe", PipeDirection.In))
+                {
+                    isConnected = true;
+                    await pipeServer.WaitForConnectionAsync(); // Ожидаем подключения внешнего приложения
+
+                    // Читаем данные о цене деления
+                    byte[] buffer = new byte[100];
+                    int bytesRead = pipeServer.Read(buffer, 0, buffer.Length);
+                    string voltageData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    // Обновляем значение цены деления
+                    unitsBox.Text = Convert.ToString(voltageData);
+                    isConnected = false;
+                }
+                await UpdateUnits();
+            }
+        }
+
+        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            await SetVoltage(0);
         }
     }
 }

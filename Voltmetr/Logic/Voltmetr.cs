@@ -21,9 +21,10 @@ namespace Voltmetr.Logic
         {
             arrow.value = volt;
         }
-        public void SetMultiply(double val)
+        public async void SetMultiply(double val)
         {
             arrow.Multiply = val;
+            await SetUnit(1 / val);
         }
         public async Task UpdateVoltage()
         {
@@ -45,6 +46,18 @@ namespace Voltmetr.Logic
                 }
                 if(Repeat)
                 await UpdateVoltage();
+            }
+        }
+        static async Task SetUnit(double unit)
+        {
+            using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", "voltmeterUnitPipe", PipeDirection.Out))
+            {
+                await pipeClient.ConnectAsync(); // Подключаемся к именованному каналу
+
+                // Отправляем данные о напряжении
+                string voltageData = unit.ToString(); // Пример значения напряжения
+                byte[] buffer = Encoding.UTF8.GetBytes(voltageData);
+                pipeClient.Write(buffer, 0, buffer.Length);
             }
         }
     }

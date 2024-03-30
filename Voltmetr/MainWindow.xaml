@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Voltmetr"
         mc:Ignorable="d"
-        Title="Вольтметр" Height="608" Width="535" ResizeMode="CanMinimize">
+        Title="Вольтметр" Height="529" Width="534" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style x:Key="SquareRadioButtonStyle" TargetType="RadioButton">
             <Setter Property="Template">
@@ -20,7 +20,7 @@
                             </Grid.RowDefinitions>
 
                             <!-- Текст Content -->
-                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
+                            <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Black" FontStyle="Normal"/>
 
                             <!-- Квадрат и CheckMark -->
                             <Rectangle x:Name="Border" Grid.Row="1" Width="25" Height="50" Stroke="Black" StrokeThickness="2" Fill="Transparent"/>
@@ -50,8 +50,8 @@
         </Style>
     </Window.Resources>
     <Grid Background="Black">
-        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,410" BorderBrush="#FF252525" Foreground="White" Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal" Height="156">
+        <GroupBox Header="" Background="#FF252525" Margin="0,0,0,388" BorderBrush="#FF252525" Foreground="White">
+            <StackPanel Orientation="Horizontal" Height="126" Background="#FFA7A7A7">
                 <Button Content="Получить данные" Height="37" Width="128" Click="Button_Click" VerticalAlignment="Top"/>
                 <ListBox BorderThickness="0" Background="#00252525" Width="186" Height="96" VerticalAlignment="Top" Margin="200,0,0,0">
                     <StackPanel Background="Transparent" Orientation="Horizontal">
@@ -64,7 +64,7 @@
                 </ListBox>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="" Background="#FF252525" Margin="0,163,0,10" BorderBrush="#FF252525" Foreground="White" Grid.ColumnSpan="2">
+        <GroupBox Header="" Background="#FF1D1D1D" Margin="0,91,0,10" BorderBrush="#FF252525" Foreground="White">
             <Canvas Background="White" Margin="38,0,81,0" Height="327">
                 <Image Height="327" Canvas.Left="-10" Width="492" Source="/вольтметр.jpg" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Source="/arrow.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="48" Height="380" Canvas.Left="190" Canvas.Top="30">
