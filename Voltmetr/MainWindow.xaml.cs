@@ -27,7 +27,7 @@ namespace Voltmetr
         public MainWindow()
         {
             InitializeComponent();
-            voltmetr = new VoltmetrEMU(ArrowAngle);
+            voltmetr = new VoltmetrEMU(canvass, "/вольтметр.jpg", "/arrow.png");
             voltmetr.SetMultiply(0f);
             voltmetr.SetVoltage(10);
             DataContext = this;

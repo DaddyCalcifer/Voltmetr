@@ -105,5 +105,9 @@
   <ItemGroup>
     <Resource Include="вольтметр.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="клеммы.png" />
+    <Resource Include="клеммы_с_проводом.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

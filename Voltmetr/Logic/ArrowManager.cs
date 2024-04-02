@@ -28,6 +28,10 @@ namespace Voltmetr.Logic
                 this.mult_ = value;
             }
         }
+        public void setArrowRotateTransform(RotateTransform arrow)
+        {
+            angle = arrow;
+        }
         public double value {  
             get { return value_; }
             set {

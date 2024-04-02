@@ -65,13 +65,8 @@
             </StackPanel>
         </GroupBox>
         <GroupBox Header="" Background="#FF1D1D1D" Margin="0,91,0,10" BorderBrush="#FF252525" Foreground="White">
-            <Canvas Background="White" Margin="38,0,81,0" Height="327">
-                <Image Height="327" Canvas.Left="-10" Width="492" Source="/вольтметр.jpg" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Image Source="/arrow.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="48" Height="380" Canvas.Left="190" Canvas.Top="30">
-                    <Image.RenderTransform>
-                        <RotateTransform x:Name="ArrowAngle" Angle="-81" CenterX="24" CenterY="190"/>
-                    </Image.RenderTransform>
-                </Image>
+            <Canvas Background="White" Margin="38,0,81,0" Height="327" Name="canvass">
+                
             </Canvas>
         </GroupBox>
 
