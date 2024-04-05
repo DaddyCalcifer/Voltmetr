@@ -23,21 +23,12 @@ namespace Voltmetr
     public partial class MainWindow : Window
     {
         VoltmetrEMU voltmetr;
-        public ObservableCollection<string> RadioButtonItems { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             voltmetr = new VoltmetrEMU(canvass, "/вольтметр.jpg", "/arrow.png");
             voltmetr.SetMultiply(0f);
-            voltmetr.SetVoltage(10);
-            DataContext = this;
-            RadioButtonItems = new ObservableCollection<string>
-            {
-                "Option 1",
-                "Option 2",
-                "Option 3",
-                "Option 4"
-            };
+            voltmetr.SetVoltage(0);
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
